@@ -3,11 +3,11 @@
   become: true
   hosts: all
   tasks:
-   - name: Create a project using apply
-     redhat.openshift.k8s:
- #    state: present
-     resource_definition:
-       apiVersion: project.openshift.io/v1
-       kind: Project
-       metadata:
-         name: testing
+  - name: Create an OCP project
+    community.okd.k8s:
+      state: present
+      resource_definition:
+        apiVersion: project.openshift.io/v1
+        kind: Project
+        metadata:
+          name: testing
