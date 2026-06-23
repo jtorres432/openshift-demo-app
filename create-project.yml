@@ -4,4 +4,8 @@
   hosts: all
   tasks:
     - name: Create an OCP project
-      shell: "oc new-project node-app --display-name 'mi aplicación Node'"
+      shell: "oc new-project game-2048 --display-name '2048 game'"
+    - name: Clona el repositorio  
+      shell: "git clone https://github.com/digitalocean/kubernetes-sample-apps.git"
+    - name: Crea el juego
+      shell: "kubectl apply -k kubernetes-sample-apps/game-2048-example/kustomize"
