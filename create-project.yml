@@ -10,7 +10,7 @@
             kind: Project
             apiVersion: project.openshift.io/v1
             metadata:
-              name: default
+              name: node-app
             annotations:
               openshift.io/sa.scc.mcs: 's0:c1,c0'
               openshift.io/sa.scc.supplemental-groups: 1000000000/10000
