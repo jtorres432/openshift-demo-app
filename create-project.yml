@@ -1,0 +1,17 @@
+---
+- name: Playbook que crea un nuevo proyecto
+  become: true
+  hosts: all
+  tasks:
+    - name: Create a project using apply
+      redhat.openshift.k8s:
+#        namespace: default
+        definition:
+            kind: Project
+            apiVersion: project.openshift.io/v1
+            metadata:
+              name: default
+            annotations:
+              openshift.io/sa.scc.mcs: 's0:c1,c0'
+              openshift.io/sa.scc.supplemental-groups: 1000000000/10000
+              openshift.io/sa.scc.uid-range: 1000000000/10000
