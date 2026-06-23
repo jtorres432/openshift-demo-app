@@ -4,4 +4,4 @@
   hosts: all
   tasks:
     - name: Create an OCP project
-      shell: "oc create project node-app"
+      shell: "oc new-project node-app --display-name 'mi aplicación Node'"
