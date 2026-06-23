@@ -5,7 +5,7 @@
   tasks:
    - name: Create a project using apply
      redhat.openshift.k8s:
-     state: present
+ #    state: present
      resource_definition:
        apiVersion: project.openshift.io/v1
        kind: Project
