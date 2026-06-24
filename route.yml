@@ -1,5 +1,6 @@
 kind: Route
 apiVersion: route.openshift.io/v1
+namespace: http-demo
 metadata:
   name: simple-http-server
   annotations:
