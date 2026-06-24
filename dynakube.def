@@ -1,0 +1,42 @@
+apiVersion: v1
+data:
+  apiToken: ZHQwYzAxLk9DTU5SQlpFTlRPWDZVSU5BVE5IQ0pGUS5LVlkyVk5JSDdZM1NTWkhaT0VORkRIR0JYNlFNVTNBN1E1TDdEUkJLSUNMUU5ESzNVR1QyWEZZRFhTQk9QUE40
+  dataIngestToken: ZHQwYzAxLjdSSERYNlNKSFpXSEFJVjZXWDRFQjNBQi5IUUMzT1BDQVBRUzZBTENPVFVHNk1MQjJGVk43WjU3REtLMjNWMlZINk9FUktHVFFCQ1dWUFJNQ0dRM0RHREcy
+kind: Secret
+metadata:
+  name: openshift
+  namespace: dynatrace
+type: Opaque
+---
+apiVersion: dynatrace.com/v1beta6
+kind: DynaKube
+metadata:
+  name: openshift
+  namespace: dynatrace
+spec:
+  apiUrl: https://bht57484.live.dynatrace.com/api
+  skipCertCheck: false
+  metadataEnrichment:
+    enabled: true
+  oneAgent:
+    cloudNativeFullStack:
+      tolerations:
+        - effect: NoSchedule
+          key: node-role.kubernetes.io/master
+          operator: Exists
+        - effect: NoSchedule
+          key: node-role.kubernetes.io/control-plane
+          operator: Exists
+  activeGate:
+    capabilities:
+      - routing
+      - kubernetes-monitoring
+      - dynatrace-api
+    resources:
+      requests:
+        cpu: 500m
+        memory: 6Gi
+      limits:
+        cpu: 1000m
+        memory: 6Gi
+  logMonitoring: {}
