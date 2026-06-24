@@ -1,0 +1,7 @@
+---
+- name: Playbook que despliega Wordpress
+  become: true
+  hosts: all
+  tasks:
+    - name: Apply file
+      shell: "oc apply -f https://github.com/jtorres432/openshift-demo-app/blob/main/wordpress.yml"
