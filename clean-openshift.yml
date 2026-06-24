@@ -1,0 +1,19 @@
+---
+- name: Playbook que limpia la aplicación y el operador de Dynatrace
+  become: true
+  hosts: all
+  tasks:
+    - name: Borra el proyecto
+      shell: "oc delete project http-demo"
+    - name: Borra el operador de Dynatrace
+      shell: "oc delete dynakube -n dynatrace --all"
+    - name: Borrado
+      shell: "oc delete edgeconnect -n dynatrace --all"
+    - name: Borra
+      shell: "oc -n dynatrace wait pod --for=delete -l app.kubernetes.io/managed-by=dynatrace-operator --timeout=300s"
+    - name: Borra
+      shell: "oc -n dynatrace wait edgeconnect --for=delete --all --timeout=300s"
+    - name: Borra
+      shell: "/bin/loca/usr/helm uninstall dynatrace-operator -n dynatrace"
+    - name: Borra
+      shell: "kubectl delete namespace dynatrace"
