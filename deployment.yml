@@ -10,6 +10,7 @@ metadata:
     app.kubernetes.io/part-of: simple-http-server-app
     app.openshift.io/runtime: other-linux
     app.openshift.io/runtime-namespace: simple-http
+namespace: http-demo
 spec:
   replicas: 1
   selector:
