@@ -5,3 +5,5 @@
   tasks:
     - name: Create an OCP project
       shell: "oc new-project wordpress-demo"
+    - name: Create a secret
+      shell: "oc create secret generic mysql-pass --from-literal=password=Wordpress@123"
