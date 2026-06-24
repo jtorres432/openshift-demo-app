@@ -1,8 +1,8 @@
 kind: Route
 apiVersion: route.openshift.io/v1
-namespace: http-demo
 metadata:
   name: simple-http-server
+  namespace: http-demo
   annotations:
     haproxy.router.openshift.io/balance: roundrobin
   labels:
