@@ -11,6 +11,7 @@
       shell: "chown lab-user:users /tmp/get_helm.sh"
     - name: Instala HELM en bastion
       shell: "sh /tmp/get_helm.sh"
+      ignore_errors: True
     - name: Despliega el operador
       shell: "helm install dynatrace-operator oci://public.ecr.aws/dynatrace/dynatrace-operator --create-namespace --namespace dynatrace --rollback-on-failure"
     - name: Despliega el dynakube
