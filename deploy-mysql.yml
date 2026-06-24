@@ -4,4 +4,4 @@
   hosts: all
   tasks:
     - name: Apply file
-      shell: "oc apply -f https://github.com/jtorres432/openshift-demo-app/blob/main/mysql.def"
+      shell: "oc apply -f https://github.com/jtorres432/openshift-demo-app/blob/main/mysql.yml"
