@@ -1,5 +1,6 @@
 kind: Service
 apiVersion: v1
+namespace: http-demo
 metadata:
   name: simple-http-server
   labels:
