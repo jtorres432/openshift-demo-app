@@ -11,7 +11,7 @@
     - name: cambia owner
       shell: "chown lab-user:users /tmp/get_helm.sh"
     - name: Instala HELM en bastion
-      shell: "sh /tmp/get_helm.sh"
+      shell: "sh /var/tmp/get_helm.sh"
       ignore_errors: True
     - name: Despliega el operador
       shell: "/usr/local/bin/helm upgrade --install dynatrace-operator oci://public.ecr.aws/dynatrace/dynatrace-operator --create-namespace --namespace dynatrace --rollback-on-failure"
@@ -26,4 +26,4 @@
         dest: /var/tmp/dynakube.yml
         mode: '0777'
     - name: Despliega el dynakube
-      shell: "oc apply -f /tmp/dynakube.yml"
+      shell: "oc apply -f /var/tmp/dynakube.yml"
