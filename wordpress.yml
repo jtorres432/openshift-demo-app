@@ -15,6 +15,10 @@ spec:
       containers:
       - name: wordpress
         image: wordpress:latest
+        securityContext:   # This is what wglambert referring to 
+          sysctls:               # Will add a sysctl in variable to your container
+          - name: net.ipv4.ip_unprivileged_port_start   # You will modify the this parameter 
+            value: "0"
         env:
         - name: WORDPRESS_DB_HOST
           value: mysql
