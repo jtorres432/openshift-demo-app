@@ -1,0 +1,7 @@
+---
+- name: Playbook que despliega apps
+  become: true
+  hosts: all
+  tasks:
+    - name: Apply file
+      shell: "oc apply -f https://raw.githubusercontent.com/openshift-examples/kustomize/refs/heads/main/components/simple-http-server/deployment.yaml"
