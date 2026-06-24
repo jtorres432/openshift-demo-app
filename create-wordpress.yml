@@ -1,0 +1,6 @@
+---
+- name: Playbook que crea un nuevo proyecto
+  become: true
+  hosts: all
+  tasks:
+    - name: apply file
