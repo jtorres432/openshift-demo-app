@@ -4,9 +4,10 @@
   hosts: all
   tasks:
     - name: Descarga HELM en bastion
-      shell: "curl -fsSL -o /tmp/get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4"
-    - name: Cambia permisos
-      shell: "chmod 777 /tmp/get_helm.sh"
+      ansible.builtin.get_url:
+      url: https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4
+      dest: /var/tmp/get_helm.sh
+      mode: '0777'
     - name: cambia owner
       shell: "chown lab-user:users /tmp/get_helm.sh"
     - name: Instala HELM en bastion
