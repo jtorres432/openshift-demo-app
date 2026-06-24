@@ -1,1 +1,15 @@
-
+---
+- name: Playbook que despliega el operador de Dynatrace en Openshift
+  become: true
+  hosts: all
+  tasks:
+    - name: Descarga HELM en bastion
+      shell: "curl -fsSL -o /tmp/get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4"
+    - name: Cambia permisos
+      shell: "chmod 700 /tmp/get_helm.sh"
+    - name: Instala HELM en bastion
+      shell: "sh /tmp/get_helm.sh"
+    - name: Despliega el operador
+      shell: "helm install dynatrace-operator oci://public.ecr.aws/dynatrace/dynatrace-operator --create-namespace --namespace dynatrace --atomic"
+    - name: Despliega el dynakube
+      shell: "oc apply -f 
