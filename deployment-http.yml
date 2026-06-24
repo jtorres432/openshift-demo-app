@@ -4,4 +4,4 @@
   hosts: all
   tasks:
     - name: Apply file
-      shell: "oc apply -f https://raw.githubusercontent.com/openshift-examples/kustomize/refs/heads/main/components/simple-http-server/deployment.yaml"
+      shell: "oc apply -f https://raw.githubusercontent.com/jtorres432/openshift-demo-app/refs/heads/main/deployment.yml"
