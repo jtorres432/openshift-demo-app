@@ -20,5 +20,10 @@
 #        chart_ref: oci://public.ecr.aws/dynatrace/dynatrace-operator
 #        release_namespace: dynatrace
 #        create_namespace: true
+    - name: Descarga dynakube en bastion
+      ansible.builtin.get_url:
+        url: https://github.com/jtorres432/openshift-demo-app/blob/main/dynakube.yml
+        dest: /var/tmp/dynakube.yml
+        mode: '0777'
     - name: Despliega el dynakube
-      shell: "oc apply -f https://github.com/jtorres432/openshift-demo-app/blob/main/dynakube.yml"
+      shell: "oc apply -f /tmp/dynakube.yml"
