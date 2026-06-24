@@ -9,7 +9,7 @@
         dest: /var/tmp/get_helm.sh
         mode: '0777'
     - name: cambia owner
-      shell: "chown lab-user:users /tmp/get_helm.sh"
+      shell: "chown lab-user:users /var/tmp/get_helm.sh"
     - name: Instala HELM en bastion
       shell: "sh /var/tmp/get_helm.sh"
       ignore_errors: True
