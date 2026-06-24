@@ -5,3 +5,4 @@
   tasks:
     - name: Create an OCP project
       shell: "oc new-project http-demo"
+      ignore_errors: true
