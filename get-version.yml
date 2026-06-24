@@ -1,0 +1,14 @@
+---
+- name: Playbook que obtiene versión de kubernetes
+  become: true
+  hosts: all
+  tasks:
+    - name: Otiene versiones
+      shell: "oc version"
+    - name: Obtienne API's
+      shell: "oc api-resources"
+    - name: Obtiene versiones de API's
+      shell: "pc oc api-versions"
+    - name: Test
+      set_fact:
+        projects: "{{ query('kubernetes.core.k8s', api_version='v1', kind='Namespace') }}"
