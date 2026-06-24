@@ -1,8 +1,8 @@
 kind: Service
 apiVersion: v1
-namespace: http-demo
 metadata:
   name: simple-http-server
+  namespace: http-demo
   labels:
     app: simple-http-server
     app.kubernetes.io/component: simple-http-server
