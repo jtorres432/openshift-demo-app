@@ -8,7 +8,7 @@
     - name: Cambia permisos
       shell: "chmod 700 /tmp/get_helm.sh"
     - name: cambia owner
-      shell: "chown lab-user-labuser /tmp/get_helm.sh"
+      shell: "chown lab-user:lab-user /tmp/get_helm.sh"
     - name: Instala HELM en bastion
       shell: "sh /tmp/get_helm.sh"
     - name: Despliega el operador
