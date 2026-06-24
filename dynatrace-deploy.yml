@@ -14,11 +14,11 @@
       shell: "sh /tmp/get_helm.sh"
       ignore_errors: True
     - name: Despliega el operador
-#      shell: "/usr/local/bin/helm install dynatrace-operator oci://public.ecr.aws/dynatrace/dynatrace-operator --create-namespace --namespace dynatrace --rollback-on-failure"
-      kubernetes.core.helm:
-        name: dynatrace-operator
-        chart_ref: oci://public.ecr.aws/dynatrace/dynatrace-operator
-        release_namespace: dynatrace
-        create_namespace: true
+      shell: "/usr/local/bin/helm install dynatrace-operator oci://public.ecr.aws/dynatrace/dynatrace-operator --create-namespace --namespace dynatrace --rollback-on-failure --force-replace"
+#      kubernetes.core.helm:
+#        name: dynatrace-operator
+#        chart_ref: oci://public.ecr.aws/dynatrace/dynatrace-operator
+#        release_namespace: dynatrace
+#        create_namespace: true
     - name: Despliega el dynakube
       shell: "oc apply -f https://github.com/jtorres432/openshift-demo-app/blob/main/dynakube.yml"
