@@ -5,6 +5,20 @@
   tasks:
     - name: Borra el proyecto
       shell: "oc delete project http-demo"
+    - name: Borra servicio
+      kubernetes.core.k8s:
+        state: absent
+        api_version: v1
+        kind: Service
+        namespace: http-demo
+        name: simple-http-server
+    - name: Borra la ruta
+      kubernetes.core.k8s:
+        state: absent
+        api_version: v1
+        kind: Route
+        namespace: htp-demo
+        name: simple-http-server
     - name: Borra el operador de Dynatrace
       shell: "oc delete dynakube -n dynatrace --all"
     - name: Borrado
