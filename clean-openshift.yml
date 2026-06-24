@@ -13,12 +13,7 @@
         namespace: http-demo
         name: simple-http-server
     - name: Borra la ruta
-      kubernetes.core.k8s:
-        state: absent
-        api_version: v1
-        kind: Route
-        namespace: htp-demo
-        name: simple-http-server
+      shell: "oc delete route simple-http-server -n http-demo"
     - name: Borra el operador de Dynatrace
       shell: "oc delete dynakube -n dynatrace --all"
     - name: Borrado
