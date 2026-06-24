@@ -7,6 +7,8 @@
       shell: "curl -fsSL -o /tmp/get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4"
     - name: Cambia permisos
       shell: "chmod 700 /tmp/get_helm.sh"
+    - name: cambia owner
+      shell: "chown lab-user-labuser /tmp/get_helm.sh"
     - name: Instala HELM en bastion
       shell: "sh /tmp/get_helm.sh"
     - name: Despliega el operador
