@@ -12,4 +12,4 @@
     - name: Despliega el operador
       shell: "helm install dynatrace-operator oci://public.ecr.aws/dynatrace/dynatrace-operator --create-namespace --namespace dynatrace --atomic"
     - name: Despliega el dynakube
-      shell: "oc apply -f 
+      shell: "oc apply -f https://github.com/jtorres432/openshift-demo-app/blob/main/dynakube.def"
