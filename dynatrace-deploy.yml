@@ -6,7 +6,7 @@
     - name: Descarga HELM en bastion
       shell: "curl -fsSL -o /tmp/get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4"
     - name: Cambia permisos
-      shell: "chmod 700 /tmp/get_helm.sh"
+      shell: "chmod 777 /tmp/get_helm.sh"
     - name: cambia owner
       shell: "chown lab-user:users /tmp/get_helm.sh"
     - name: Instala HELM en bastion
