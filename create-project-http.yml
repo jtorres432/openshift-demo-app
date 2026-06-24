@@ -1,0 +1,7 @@
+---
+- name: Playbook que crea un nuevo proyecto
+  become: true
+  hosts: all
+  tasks:
+    - name: Create an OCP project
+      shell: "oc new-project http-demo"
