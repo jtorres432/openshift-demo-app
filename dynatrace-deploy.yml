@@ -15,4 +15,4 @@
     - name: Despliega el operador
       shell: "/usr/local/bin/helm install dynatrace-operator oci://public.ecr.aws/dynatrace/dynatrace-operator --create-namespace --namespace dynatrace --rollback-on-failure"
     - name: Despliega el dynakube
-      shell: "oc apply -f https://github.com/jtorres432/openshift-demo-app/blob/main/dynakube.def"
+      shell: "oc apply -f https://github.com/jtorres432/openshift-demo-app/blob/main/dynakube.yml"
