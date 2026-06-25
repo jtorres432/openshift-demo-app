@@ -5,19 +5,28 @@
   tasks:
     - name: Borra el proyecto
       shell: "oc delete project http-demo"
+      ignore_errors: true
     - name: Borra servicio
       shell: "oc delete svc simple-http-server -n http-demo"
+      ignore_errors: true
     - name: Borra la ruta
       shell: "oc delete route simple-http-server -n http-demo"
+      ignore_errors: true
     - name: Borra el operador de Dynatrace
       shell: "oc delete dynakube -n dynatrace --all"
+      ignore_errors: true
     - name: Borrado
       shell: "oc delete edgeconnect -n dynatrace --all"
+      ignore_errors: true
     - name: Borra
       shell: "oc -n dynatrace wait pod --for=delete -l app.kubernetes.io/managed-by=dynatrace-operator --timeout=300s"
+      ignore_errors: true
     - name: Borra
       shell: "oc -n dynatrace wait edgeconnect --for=delete --all --timeout=300s"
+      ignore_errors: true
     - name: Borra
       shell: "/bin/loca/usr/helm uninstall dynatrace-operator -n dynatrace"
+      ignore_errors: true
     - name: Borra
       shell: "kubectl delete namespace dynatrace"
+      ignore_errors: true
