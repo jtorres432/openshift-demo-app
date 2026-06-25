@@ -15,18 +15,18 @@
     - name: Borra el operador de Dynatrace
       shell: "oc delete dynakube -n dynatrace --all"
       ignore_errors: true
-    - name: Borrado
+    - name: Borrado edge
       shell: "oc delete edgeconnect -n dynatrace --all"
       ignore_errors: true
-    - name: Borra
+    - name: Borra pods
       shell: "oc -n dynatrace wait pod --for=delete -l app.kubernetes.io/managed-by=dynatrace-operator --timeout=300s"
       ignore_errors: true
-    - name: Borra
+    - name: Borra edge pods
       shell: "oc -n dynatrace wait edgeconnect --for=delete --all --timeout=300s"
       ignore_errors: true
-    - name: Borra
+    - name: Borra helm
       shell: "/bin/local/usr/helm uninstall dynatrace-operator -n dynatrace"
       ignore_errors: true
-    - name: Borra
+    - name: Borra namespace
       shell: "kubectl delete namespace dynatrace"
       ignore_errors: true
