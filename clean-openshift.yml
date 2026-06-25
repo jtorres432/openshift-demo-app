@@ -6,12 +6,7 @@
     - name: Borra el proyecto
       shell: "oc delete project http-demo"
     - name: Borra servicio
-      kubernetes.core.k8s:
-        state: absent
-        api_version: v1
-        kind: Service
-        namespace: http-demo
-        name: simple-http-server
+      shell: "oc delete svc simple-http-server -n http-demo"
     - name: Borra la ruta
       shell: "oc delete route simple-http-server -n http-demo"
     - name: Borra el operador de Dynatrace
