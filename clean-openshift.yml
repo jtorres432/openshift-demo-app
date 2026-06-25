@@ -24,9 +24,6 @@
     - name: Borra edge pods
       shell: "oc -n dynatrace wait edgeconnect --for=delete --all --timeout=300s"
       ignore_errors: true
-    - name: Borra helm
-      shell: "/usr/local/bin/helm uninstall dynatrace-operator -n dynatrace"
-      ignore_errors: true
     - name: Borra namespace
       shell: "kubectl delete namespace dynatrace"
       ignore_errors: true
