@@ -3,7 +3,7 @@
   become: true
   hosts: all
   tasks:
-    - name: Otiene versiones
+    - name: Obtiene versiones
       shell: "oc version"
     - name: Obtienne API's
       shell: "oc api-resources"
